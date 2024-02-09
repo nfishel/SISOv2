@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit Pass</h3>
+<form action="/edit/{{data.id}}" method="post">
+  <label for="s_id">Student ID</label>  
+  <input type="text" name="student_id" id="s_id" value="{{ data.student_id }}" placeholder="Student ID">
+  <label for="first">First Name</label>  
+    <input type="text" name="f_name" id="first" value="{{ data.f_name }}" placeholder="First">
+  <label for="last">Last Name</label>  
+    <input type="text" name="l_name" id="last" value="{{ data.l_name }}" placeholder="Last">
+  <label for="p_date">Date: mm-dd-yyyy</label>  
+    <input type="text" name="pass_date" id="p_date" value="{{ data.pass_date }}" placeholder="mm/dd/YYYY">
+  <label for="loc">Location</label>  
+    <input type="text" name="location" id="loc" value="{{ data.location }}" placeholder="Location">
+  <label for="out">Left at: (H:MM AM/PM)</label>  
+    <input type="text" name="out_time" id="out" value="{{ data.out_time }}" placeholder="H:MM AM/PM">
+  <label for="back">Returned at: (H:MM AM/PM)</label>
+  {% if data.in_time %}
+    <input type="text" name="in_time" id="back" value="{{ data.in_time }}" placeholder="H:MM AM/PM">
+  {% else %}
+    <input type="text" name="in_time" id="back" placeholder="H:MM AM/PM">
+  {% endif %}  
+  <input type="submit" value="Update Pass">
+  
+
+  
+</form>
+{% endblock %}

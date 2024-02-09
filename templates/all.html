@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Here are all the passes</h3>
+
+<table>
+  <tr>
+    <th>Student ID</th>
+    <th>First</th>
+    <th>Last</th>
+    <th>Pass To</th>
+    <th class="mid">Date</th>
+    <th class="mid">Left at</th>
+    <th class="mid">Returned at</th>
+    <th class="mid">Actions</th>
+  </tr>
+  {% for row in rows %}
+    <tr>
+      <td>{{ row.student_id }}</td>
+      <td>{{ row.f_name }}</td>
+      <td>{{ row.l_name }}</td>
+      <td>{{ row.location }}</td>
+      <td class="mid">{{ row.pass_date }}</td>
+      <td class="mid">{{ row.out_time }}</td>
+      {% if row.in_time %}
+        <td class="mid">{{ row.in_time }}</td>
+      {% else %}
+        <td class="clr mid"><i class="bi bi-slash-circle"></i></td>
+      {% endif %}
+      <td>
+        <div class="grid">
+          <a href="/pass/{{ row.id }}" class="clr"><i class="bi bi-eye"></i></a>
+          <a href="/edit/{{ row.id }}" class="clr"><i class="bi bi-pencil"></i></a>
+          <a href="/delete/{{ row.id }}" class="clr"><i class="bi bi-trash3"></i></a>
+        </div>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

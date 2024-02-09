@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+  <header>
+    <h2 class="clr">PASS For {{data.f_name}} {{data.l_name}}</h2>
+  </header>
+  <div class="grid">
+    <h3>Date: {{data.pass_date}}</h3>
+    <h3>To: {{data.location}}</h3>
+  </div>
+  <footer>
+    <div class="grid">
+      <div><h3>Signed Out: {{data.out_time}}</h3></div>
+      <div><h3>Returned At: {{data.in_time}}</h3></div>
+    </div>
+  </footer>
+</article>
+{% endblock %}

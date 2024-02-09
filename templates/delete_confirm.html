@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Do you really wan to delete this pass?</h3>
+  <p>To delete the pass please enter the studet's id number</p>
+  <p>This action cannot be undone!</p>
+  <form action="/delete/{{ id }}" method="post">
+    <input type="text" name="stu_id" id="" placeholder="Student ID" autofocus required>
+    <input type="submit" value="Delete Pass">
+  </form>
+{% endblock %}

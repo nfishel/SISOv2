@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Summary of Passes Per Student</h3>
+<table>
+  <thead>
+    <tr>
+      <th># of Passes</th>
+      <th>Name</th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr>
+      <td>{{ row.total }}</td>      
+      <td>{{ row.l_name }}, {{ row.f_name }}</td>      
+      <td><a class="clr" href="/summary/{{ row.student_id }}"><i class="bi bi-info-square-fill"></i></a></td>      
+    </tr>
+    {% endfor %}
+  </tbody>
+  
+</table>
+{% endblock %}
